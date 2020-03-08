@@ -1,5 +1,7 @@
 class ManufacturersController < ApplicationController
 
+    #before_action :set_manufacturer, only [:new]
+
     def index
         @manufacturers = Manufacturer.all
     end
@@ -26,5 +28,9 @@ class ManufacturersController < ApplicationController
     def manufacturer_params
         params.require(:manufacturer).permit(:name)
     end
+
+    #def set_manufacturer
+    #    @manufacturer = Manufacturer.new
+    #end
 
 end
