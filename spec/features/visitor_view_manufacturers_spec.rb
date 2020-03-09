@@ -22,6 +22,6 @@ feature 'Visitor view manufacturers' do
     click_on 'Fiat'
     click_on 'Voltar'
 
-    expect(current_path).to eq root_path
+    expect(current_path).to eq manufacturers_path
   end
 end
