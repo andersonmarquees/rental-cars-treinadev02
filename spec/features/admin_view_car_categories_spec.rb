@@ -26,8 +26,8 @@ feature 'Admin view car categories' do
         click_on 'B'
 
         expect(page).to have_content 'Categoria B'
-        expect(page).to have_content 'Diária Padrão: 149'
-        expect(page).to have_content 'Seguro do Carro: 1500'
-        expect(page).to have_content 'Seguro para Terceiros: 1999'
+        expect(page).to have_content 'Diária Padrão: 149.0'
+        expect(page).to have_content 'Seguro do Carro: 1500.0'
+        expect(page).to have_content 'Seguro para Terceiros: 1999.0'
     end
 end
