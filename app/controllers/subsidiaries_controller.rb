@@ -13,6 +13,7 @@ class SubsidiariesController < ApplicationController
         if @subsidiary.save
             redirect_to @subsidiary
         else
+            flash.now[:alert] = 'Você deve informar todos os campos'
             render :new
         end
     end
@@ -27,3 +28,4 @@ class SubsidiariesController < ApplicationController
         params.require(:subsidiary).permit(:name, :cnpj, :address)
     end
 end
+#validates :name, :cnpj, uniqueness: {message: 'Nome ou CNPJ já está em uso'}
