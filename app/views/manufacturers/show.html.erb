@@ -1,3 +1,6 @@
 Fabricante:<%= @manufacturer.name %>
 
 <%= link_to "Voltar", manufacturers_path%>
+<%= link_to "Editar", edit_manufacturer_path(@manufacturer) %>
+<%= link_to "Deletar", manufacturer_path(@manufacturer), method: :delete, 
+                                    data: { confirm: "Gostaria de excluir: #{@manufacturer.name} ?" } %>
