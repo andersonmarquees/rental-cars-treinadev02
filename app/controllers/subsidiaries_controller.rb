@@ -1,4 +1,6 @@
 class SubsidiariesController < ApplicationController
+
+    before_action :set_subsidiary, only: [:show, :edit, :update, :destroy]
     
     def index
         @subsidiaries = Subsidiary.all
@@ -19,7 +21,24 @@ class SubsidiariesController < ApplicationController
     end
 
     def show
-        @subsidiary = Subsidiary.find(params[:id])
+        
+    end
+    
+    def edit
+        
+    end
+
+    def update
+        if @subsidiary.update(subsidiary_params)
+            redirect_to @subsidiary
+        else
+            render :edit
+        end
+    end
+
+    def destroy
+        @subsidiary.destroy
+        redirect_to @subsidiary
     end
 
     private
@@ -27,5 +46,9 @@ class SubsidiariesController < ApplicationController
     def subsidiary_params
         params.require(:subsidiary).permit(:name, :cnpj, :address)
     end
+
+    def set_subsidiary
+        id = params[:id]
+        @subsidiary = Subsidiary.find(id)
+    end
 end
-#validates :name, :cnpj, uniqueness: {message: 'Nome ou CNPJ já está em uso'}

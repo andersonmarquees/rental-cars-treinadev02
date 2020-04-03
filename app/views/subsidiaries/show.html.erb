@@ -4,4 +4,7 @@ CNPJ:<%= @subsidiary.cnpj %><br>
 
 Endereço:<%= @subsidiary.address %><br>
 
+<%= link_to "Editar", edit_subsidiary_path(@subsidiary) %>
+<%= link_to "Deletar", subsidiary_path(@subsidiary), method: :delete,
+                        data: { confirm: "Gostaria de excluir: #{@subsidiary.name} ?"} %>
 <%= link_to 'Voltar', root_path %>
