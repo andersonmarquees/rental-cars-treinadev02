@@ -8,5 +8,8 @@ Seguro do Carro: <%= @car_category.car_insurance %>
 
 Seguro para Terceiros: <%= @car_category.third_party_insurance %><br>
 
+<%= link_to 'Editar', edit_car_category_path(@car_category) %>
+<%= link_to 'Deletar', car_category_path(@car_category),method: :delete, 
+                    data: { confirm:"Gostaria de excluir: #{@car_category.name} ?"} %>
 <%= link_to "Voltar", car_categories_path%>
 

@@ -15,7 +15,6 @@ class SubsidiariesController < ApplicationController
         if @subsidiary.save
             redirect_to @subsidiary
         else
-            flash.now[:alert] = 'Você deve informar todos os campos'
             render :new
         end
     end

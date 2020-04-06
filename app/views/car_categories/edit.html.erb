@@ -1,3 +1,5 @@
+<h3>Editando</h3>
+
 <% if @car_category.errors.any? %>
     <% @car_category.errors.full_messages.each do |message| %>
         <%= message %>
@@ -19,4 +21,3 @@
     
     <%= f.submit "Enviar" %>
 <% end %>
-
