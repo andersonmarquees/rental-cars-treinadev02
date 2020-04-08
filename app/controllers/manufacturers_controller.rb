@@ -15,6 +15,7 @@ class ManufacturersController < ApplicationController
         if @manufacturer.save
             redirect_to @manufacturer
         else
+            flash.now[:alert] = 'Você deve informar todos os campos'
             render :new
         end
     end
@@ -30,7 +31,9 @@ class ManufacturersController < ApplicationController
     def update
         if @manufacturer.update(manufacturer_params)
             redirect_to @manufacturer
+            flash[:notice] = "Fabricante editada com sucesso"
         else
+            flash[:alert] = 'Nome já está em uso'
             render :edit
         end
     end

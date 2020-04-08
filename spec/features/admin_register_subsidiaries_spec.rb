@@ -32,12 +32,12 @@ feature 'Admin register Subsidiaries' do
         expect(page). to have_content('Você deve informar todos os campos')
 
     end
-    xscenario 'and nome e cnpj must be unique' do
-        subsidiary = Subsidiary.new(
-            name: 'Sao Paulo',
-            cnpj: '05.370.840/0001-07',
-            address: 'Rua da filial 1'
-        )
+    scenario 'and nome e cnpj must be unique' do
+        subsidiary = Subsidiary.create(
+                    name: 'Sao Paulo',
+                    cnpj: '05.370.840/0001-07',
+                    address: 'Rua da filial 1'
+                ) 
         visit new_subsidiary_path
         fill_in 'Nome', with: 'Sao Paulo'
         fill_in 'CNPJ', with: '05.370.840/0001-07'
@@ -47,3 +47,4 @@ feature 'Admin register Subsidiaries' do
         expect(page).to have_content('Nome ou CNPJ já está em uso')
     end
 end
+

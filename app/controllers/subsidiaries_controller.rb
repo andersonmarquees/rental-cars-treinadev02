@@ -15,6 +15,7 @@ class SubsidiariesController < ApplicationController
         if @subsidiary.save
             redirect_to @subsidiary
         else
+            flash.now[:alert] = 'Você deve informar todos os campos'
             render :new
         end
     end
@@ -30,7 +31,9 @@ class SubsidiariesController < ApplicationController
     def update
         if @subsidiary.update(subsidiary_params)
             redirect_to @subsidiary
+            flash[:notice] = "Filial editada com sucesso"
         else
+            flash[:alert] = 'Nome ou CNPJ já está em uso'
             render :edit
         end
     end

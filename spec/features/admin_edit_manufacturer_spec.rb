@@ -12,7 +12,7 @@ feature 'Admin edit manufacturer' do
         click_on 'Enviar'
         expect(page).to have_content('Honda')
     end
-    scenario '' do
+    scenario 'must fill in field' do
         Manufacturer.create(name: 'Ford')
 
         visit root_path
