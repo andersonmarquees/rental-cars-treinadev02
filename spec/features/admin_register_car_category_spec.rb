@@ -4,6 +4,10 @@ feature 'Admin reister car categories' do
     scenario 'successfully' do
         CarCategory.new(name: 'A', daily_rate: 99, car_insurance: 1000, 
             third_party_insurance: 1499)
+
+        admin = User.create!(email: 'register@categories.com', password: '991177', role: :admin)
+
+        login_as(admin, scope: :user)
         
         visit root_path
         click_on 'Categorias de Carros'
@@ -21,6 +25,10 @@ feature 'Admin reister car categories' do
     scenario 'Must fill in fields' do
         CarCategory.new(name: 'A', daily_rate: 99, car_insurance: 1000, 
             third_party_insurance: 1499)
+
+        admin = User.create!(email: 'register2@categories.com', password: '991199', role: :admin)
+
+        login_as(admin, scope: :user)
         
         visit new_car_category_path
         
@@ -34,6 +42,10 @@ feature 'Admin reister car categories' do
     scenario 'unique' do
         CarCategory.create(name: 'A', daily_rate: 99, car_insurance: 1000, 
             third_party_insurance: 1499)
+
+        admin = User.create!(email: 'register3@categories.com', password: '996677', role: :admin)
+
+        login_as(admin, scope: :user)
         
         visit new_car_category_path
         

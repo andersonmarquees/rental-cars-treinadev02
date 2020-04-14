@@ -7,6 +7,10 @@ feature 'Admin register Subsidiaries' do
             cnpj: '05.370.840/0001-07',
             address: 'Rua da filial 1'
         )
+        admin = User.create!(email: 'register@subsidiary.com', password: '112233', role: :admin)
+
+        login_as(admin, scope: :user)
+
         visit root_path
         click_on 'Filiais'
         click_on 'Registrar nova Filial'
@@ -23,6 +27,10 @@ feature 'Admin register Subsidiaries' do
             cnpj: '05.370.840/0001-07',
             address: 'Rua da filial 1'
         )
+        admin = User.create!(email: 'register2@subsidiary.com', password: '442233', role: :admin)
+
+        login_as(admin, scope: :user)
+
         visit new_subsidiary_path
         fill_in 'Nome', with: ''
         fill_in 'CNPJ', with: ''
@@ -37,7 +45,11 @@ feature 'Admin register Subsidiaries' do
                     name: 'Sao Paulo',
                     cnpj: '05.370.840/0001-07',
                     address: 'Rua da filial 1'
-                ) 
+                )
+        admin = User.create!(email: 'register3@subsidiary.com', password: '115533', role: :admin)
+
+        login_as(admin, scope: :user)
+
         visit new_subsidiary_path
         fill_in 'Nome', with: 'Sao Paulo'
         fill_in 'CNPJ', with: '05.370.840/0001-07'

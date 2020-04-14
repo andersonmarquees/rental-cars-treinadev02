@@ -8,6 +8,10 @@ feature 'Admin edit subsidiary' do
             cnpj: '05.370.840/0001-07',
             address: 'Rua Filial'
         )
+        admin = User.create!(email: 'edit@subsidiary.com', password: '1233456', role: :admin)
+
+        login_as(admin, scope: :user)
+
         visit root_path
         click_on 'Filiais'
         click_on 'Filial 1'
@@ -28,6 +32,11 @@ feature 'Admin edit subsidiary' do
             cnpj: '05.370.840/0001-07',
             address: 'Rua Filial'
         )
+
+        admin = User.create!(email: 'edit2@subsidiary.com', password: '12334561', role: :admin)
+
+        login_as(admin, scope: :user)
+
         visit root_path
         click_on 'Filiais'
         click_on 'Filial 1'
