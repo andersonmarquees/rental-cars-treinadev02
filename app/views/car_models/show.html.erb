@@ -1,0 +1,17 @@
+<h1>Categoria de Carros</h1>
+
+Nome:<%= @car_model.name %>
+
+Ano:<%= @car_model.year %>
+
+Motorização:<%= @car_model.motorization %>
+
+Combustível:<%= @car_model.fuel_type %>
+
+Fabricante:<%= @car_model.manufacturer.name %>
+
+Categoria:<%= @car_model.car_category.name %>
+
+<% link_to "Voltar", root_path %>
+
+
